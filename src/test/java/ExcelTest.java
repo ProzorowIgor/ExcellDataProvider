@@ -35,6 +35,22 @@ public class ExcelTest {
         Assert.assertEquals(jsonPath.getString("data.avatar"),params[4]);
     }
 
+    // The same using Pojo classes
+  /*  @Test(dataProvider = "usersForApi", dataProviderClass = ExcelDataProviders.class)
+    public void checkUsersPojo(String... params){
+        int id = (int) Double.parseDouble(params[0]);
+        UserPojo user = given()
+                .contentType(ContentType.JSON)
+                .get("https://reqres.in/api/users/"+id)
+                .then().log().body()
+                .extract().body().jsonPath().getObject("data",UserPojo.class);
+        Assert.assertEquals(user.getId(),id);
+        Assert.assertEquals(user.getEmail(),params[1]);
+        Assert.assertEquals(user.getFirst_name(),params[2]);
+        Assert.assertEquals(user.getLast_name(),params[3]);
+        Assert.assertEquals(user.getAvatar(),params[4]);
+    }*/
+
 
 
 
